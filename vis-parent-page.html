@@ -27,10 +27,37 @@
             	vertical-align: baseline;
             }        
             
-            #div0 {
+            html, body {
+                height: 100%;
+            }
+
+            #container {
+                min-height: 100%;
+                position: relative;
+                background-color: #522D80;
+                /* background-color: #000000; */
+            }
+
+            #header {
+                background-color: #522D80;
+                color: grey;
+                font-family: "Arial", "Verdana";
+                font-size: 250%;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            #iframe0 {
+                padding-bottom:60px; /* height of the footer */
+                display:block;
+                margin: 0 auto;
+            }
+
+            #footer {
+                position: absolute;
+                bottom: 0;
                 width: 100%;
-                height: 20%;
-                border: 5px solid #F66733;
+                /*border: 5px solid #522D80;*/
                 background-color: grey;
                 color: black;
                 font-family: "Arial", "Verdana";
@@ -38,31 +65,26 @@
                 text-align: center;
                 vertical-align: middle;
             }
-
-            #div1 {
-                width: 100%;
-                height: 10%;
-                border: 5px solid #522D80;
-                background-color: grey;
-                color: black;
-                font-family: "Arial", "Verdana";
-                font-size: 100%;
-                text-align: center;
-                vertical-align: middle;
-                }
                 
-            /* Eliminates white border appearing at bottom of "body" due to height
-             * calculation of embeded canvas (errors?)
-             */
-            body {
-                background-color: #000000;
-            }    
-        
         </style>
     </head>
     <body>
-        <div id=div0>Clemson Research Cyberinfrastructure Visualization</div>
-        <iframe src=vis-with-controls.html id="iframe0" height="600px" width="100%" scrolling="no" marginwidth="0px" marginheight="0px"></iframe>
-        <div id=div1><a href="http://citi.clemson.edu">CITI</a></div>
+        <div id="container">
+            <div id="header">
+                <span>Clemson Research Cyberinfrastructure Visualization</span>
+            </div>
+            <iframe src=vis-with-controls.html id="iframe0" height="100px" width="98%" scrolling="no" marginwidth="0px" marginheight="0px"></iframe>
+            <div id="footer"><a href="http://citi.clemson.edu">CITI</a></div>
+            <script>
+                document.getElementById("header").style.height = (window.innerHeight * 0.05) + "px";
+                document.getElementById("iframe0").height=(window.innerHeight * 0.9) + "px";
+                document.getElementById("iframe0").style.paddingBottom = (window.innerHeight * 0.05) + "px";
+                document.getElementById("footer").style.height = (window.innerHeight * 0.05) + "px";
+                window.onresize = function() {
+                    window.location.reload();
+                    console.log('window resized: window.innerWidth = ' + window.innerWidth + ' window.innerHeight = ' + window.innerHeight);
+                }
+            </script>
+        </div>
     </body>
 </html>

@@ -27,3 +27,17 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 body {
     background-color: #000000;
 }
+
+#directions {
+    width: 100%;
+    color: #808080;
+    text-align: right;
+    position: absolute;
+    font-size: 100%;
+    top: 0;
+    font-family: "Lucida Console"
+}
+
+strong {
+    color: cyan
+}
