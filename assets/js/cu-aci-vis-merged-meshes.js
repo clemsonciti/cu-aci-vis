@@ -39,6 +39,7 @@ var axisHelper;
 
 var palmettoMesh;
 var palmettoMeshBad;
+var palmettoMeshBadEdges;
 
 //For stats display
 var stats;
@@ -84,6 +85,7 @@ function init() {
     var axisLength = 1000.0;
     axisHelper = new THREE.AxisHelper(axisLength);
     scene.add(axisHelper);
+    axisHelper.visible = false;
     
     // Lights!
     ambLight = new THREE.AmbientLight(0x808080, 0.25); // soft white light
@@ -177,6 +179,7 @@ function palmettoComputeNodes(nodeCount) {
     gridHelper = new THREE.GridHelper(size, step);
     gridHelper.position.set(gridX/2, 0, gridZ/2);
     scene.add(gridHelper);
+    gridHelper.visible = false;
     
     for(i = 0; i < nodeCount; i++) {
         var iZf = ('000' + (i + 1)).slice(-4);
@@ -224,7 +227,10 @@ function palmettoComputeNodes(nodeCount) {
     scene.add(palmettoMesh);
     
     palmettoMeshBad = new THREE.Mesh(palmettoGeomBad, badNodeMaterial);
-    scene.add(palmettoMeshBad);    
+    scene.add(palmettoMeshBad);
+
+    palmettoMeshBadEdges = new THREE.EdgesHelper(palmettoMeshBad, 0x000000);
+    scene.add(palmettoMeshBadEdges);
 }
 
 function onWindowResize() {
@@ -243,6 +249,7 @@ function onKeyDown (event) {
             break;
         case 66: //b
             palmettoMeshBad.visible = !palmettoMeshBad.visible;
+            palmettoMeshBadEdges.visible = !palmettoMeshBadEdges.visible;
             break;   
         case 68: //d
             dirLight0.visible = !dirLight0.visible;

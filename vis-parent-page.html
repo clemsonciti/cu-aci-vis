@@ -31,6 +31,10 @@
                 height: 100%;
             }
 
+            a {
+                color: #F66733;
+            }
+
             #container {
                 min-height: 100%;
                 position: relative;
@@ -40,11 +44,19 @@
 
             #header {
                 background-color: #522D80;
-                color: grey;
+                color: #F66733;
                 font-family: "Arial", "Verdana";
-                font-size: 250%;
+                font-size: 100%;
                 text-align: center;
-                vertical-align: middle;
+                position: relative;
+                text-shadow: 4px 4px 5px black;
+            }
+
+            #header_centered_text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
 
             #iframe0 {
@@ -58,12 +70,20 @@
                 bottom: 0;
                 width: 100%;
                 /*border: 5px solid #522D80;*/
-                background-color: grey;
-                color: black;
+                background-color: #522D80;
+                color: grey;
                 font-family: "Arial", "Verdana";
-                font-size: 200%;
+                font-size: 85%;
                 text-align: center;
                 vertical-align: middle;
+                text-shadow: 4px 4px 5px black;
+            }
+
+            #footer_centered_text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
                 
         </style>
@@ -71,10 +91,14 @@
     <body>
         <div id="container">
             <div id="header">
-                <span>Clemson Research Cyberinfrastructure Visualization</span>
+                <div id="header_centered_text">Clemson Research Cyberinfrastructure Visualization</div>
             </div>
             <iframe src=vis-with-controls.html id="iframe0" height="100px" width="98%" scrolling="no" marginwidth="0px" marginheight="0px"></iframe>
-            <div id="footer"><a href="http://citi.clemson.edu">CITI</a></div>
+            <div id="footer">
+                <div id="footer_centered_text">
+                    <a href="vis-with-controls.html">Fullscreen</a> | <a href="http://citi.clemson.edu">CITI</a>
+                </div>
+            </div>
             <script>
                 document.getElementById("header").style.height = (window.innerHeight * 0.05) + "px";
                 document.getElementById("iframe0").height=(window.innerHeight * 0.9) + "px";

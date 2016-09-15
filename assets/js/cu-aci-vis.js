@@ -1,3 +1,8 @@
+/*
+ * I'm keeping this as an example of how you should not draw many shapes to the 
+ * screen! This render performs poorly because of too many draw calls.
+ */
+
 /* Expects globals:
  *   - THREE (three.js)
  *   - palmettoNodes (data.js)

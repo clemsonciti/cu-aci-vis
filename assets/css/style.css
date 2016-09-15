@@ -33,9 +33,10 @@ body {
     color: #808080;
     text-align: right;
     position: absolute;
-    font-size: 100%;
-    top: 0;
-    font-family: "Lucida Console"
+    font-size: small;
+    font-family: "Lucida Console";
+    top: 10px;
+    right: 10px;
 }
 
 strong {
